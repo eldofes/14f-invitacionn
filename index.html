@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>14F</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.3);
+      padding: 30px;
+      border-radius: 20px;
+      width: 320px;
+      height: 380px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    #buttons {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.25s ease, left 0.25s ease, top 0.25s ease;
+      position: absolute;
+    }
+
+    .yes {
+      background: #00e676;
+      color: black;
+      z-index: 2;
+    }
+
+    .no {
+      background: #ff5252;
+      color: white;
+      z-index: 1;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2 id="titulo">💌 ¿QUIERES SER MI 14F?</h2>
+
+    <div id="buttons">
+      <!-- Posición inicial: centrados y un poco separados -->
+      <button id="yesBtn" class="yes" onclick="aceptar()" style="left: 30%; top: 120px;">Sí</button>
+      <button id="noBtn" class="no" onclick="rechazar()" style="left: 55%; top: 120px;">No</button>
+    </div>
+
+    <div id="resultado" class="hidden"></div>
+  </div>
+
+  <script>
+    let escala = 1;
+    let indiceTexto = 0;
+    let yaSeMovieron = false;
+
+    const frases = [
+      "¿Por qué no?",
+      "¿Acaso no me quieres?",
+      "Por favor, di que sí.",
+      "Ya po, te conviene.",
+      "Piénsalo bien…"
+    ];
+
+    function aceptar() {
+      document.getElementById("titulo").textContent = "Invitación al 14F";
+
+      document.getElementById("buttons").classList.add("hidden");
+      document.getElementById("resultado").classList.remove("hidden");
+      document.getElementById("resultado").innerHTML = `
+        <h3>Invitación al 14F</h3>
+        <p>Te invito a salir este 14 de febrero.</p>
+        <p>A la hora que llegues a Santiago.</p>
+        <p>Outfit elegante.</p>
+        <p>Te amo.</p>
+      `;
+    }
+
+    function rechazar() {
+      const yesBtn = document.getElementById("yesBtn");
+      const noBtn = document.getElementById("noBtn");
+      const titulo = document.getElementById("titulo");
+      const container = document.getElementById("buttons");
+
+      // crecimiento gradual
+      escala = escala * 1.4;
+      yesBtn.style.transform = "scale(" + escala + ")";
+
+      // cambiar texto
+      titulo.textContent = frases[indiceTexto % frases.length];
+      indiceTexto++;
+
+      // mover ambos botones juntos dentro del recuadro
+      const maxX = container.clientWidth - 140;
+      const maxY = container.clientHeight - 60;
+
+      const baseX = Math.random() * maxX;
+      const baseY = Math.random() * maxY;
+
+      yesBtn.style.left = baseX + "px";
+      yesBtn.style.top = baseY + "px";
+
+      noBtn.style.left = (baseX + 90) + "px"; // separación moderada
+      noBtn.style.top = (baseY + 15) + "px";
+    }
+  </script>
+</body>
+</html>
