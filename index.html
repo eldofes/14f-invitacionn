@@ -21,32 +21,32 @@
 
     .card {
       background: rgba(0,0,0,0.3);
-      padding: 40px;
-      border-radius: 26px;
+      padding: 28px;              /* antes 40 */
+      border-radius: 20px;        /* antes 26 */
       width: 95%;
-      max-width: 520px;   /* antes 380 */
-      min-height: 520px;  /* más alto */
+      max-width: 360px;           /* antes 520 */
+      min-height: 380px;          /* antes 520 */
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
       position: relative;
     }
 
     h2 {
-      font-size: 36px;  /* título al doble */
-      margin-bottom: 16px;
+      font-size: 26px;            /* antes 36 */
+      margin-bottom: 12px;
     }
 
     #buttons {
       position: relative;
       width: 100%;
-      height: 320px; /* más espacio para moverse */
+      height: 220px;             /* antes 320 */
       margin-top: 10px;
     }
 
     button {
-      padding: 22px 40px; /* botones más grandes */
+      padding: 16px 28px;        /* antes 22px 40px */
       border: none;
-      border-radius: 18px;
-      font-size: 28px;    /* texto del botón al doble */
+      border-radius: 14px;       /* antes 18 */
+      font-size: 20px;           /* antes 28 */
       cursor: pointer;
       transition: transform 0.25s ease, left 0.25s ease, top 0.25s ease;
       position: absolute;
@@ -69,8 +69,8 @@
     }
 
     #resultado p {
-      font-size: 26px; /* texto final grande */
-      margin: 14px 0;
+      font-size: 18px;           /* antes 26 */
+      margin: 10px 0;
     }
   </style>
 </head>
@@ -79,8 +79,8 @@
     <h2 id="titulo">💌 Invitacion al 14F 💌</h2>
 
     <div id="buttons">
-      <button id="yesBtn" class="yes" onclick="aceptar()" style="left: 20%; top: 170px;">Sí</button>
-      <button id="noBtn" class="no" onclick="rechazar()" style="left: 55%; top: 170px;">No</button>
+      <button id="yesBtn" class="yes" onclick="aceptar()" style="left: 22%; top: 130px;">Sí</button>
+      <button id="noBtn" class="no" onclick="rechazar()" style="left: 55%; top: 130px;">No</button>
     </div>
 
     <div id="resultado" class="hidden"></div>
@@ -123,8 +123,8 @@
       titulo.textContent = frases[indiceTexto % frases.length];
       indiceTexto++;
 
-      const maxX = container.clientWidth - 220;
-      const maxY = container.clientHeight - 100;
+      const maxX = container.clientWidth - 160;
+      const maxY = container.clientHeight - 80;
 
       const baseX = Math.random() * maxX;
       const baseY = Math.random() * maxY;
@@ -132,8 +132,8 @@
       yesBtn.style.left = baseX + "px";
       yesBtn.style.top = baseY + "px";
 
-      noBtn.style.left = (baseX + 130) + "px";
-      noBtn.style.top = (baseY + 25) + "px";
+      noBtn.style.left = (baseX + 95) + "px";
+      noBtn.style.top = (baseY + 18) + "px";
     }
   </script>
 </body>
