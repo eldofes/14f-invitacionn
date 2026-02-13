@@ -21,33 +21,32 @@
 
     .card {
       background: rgba(0,0,0,0.3);
-      padding: 28px;
-      border-radius: 22px;
-      width: 90%;
-      max-width: 380px;
-      height: auto;
-      min-height: 420px;
+      padding: 40px;
+      border-radius: 26px;
+      width: 95%;
+      max-width: 520px;   /* antes 380 */
+      min-height: 520px;  /* más alto */
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
       position: relative;
     }
 
     h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
+      font-size: 36px;  /* título al doble */
+      margin-bottom: 16px;
     }
 
     #buttons {
       position: relative;
       width: 100%;
-      height: 240px;
+      height: 320px; /* más espacio para moverse */
       margin-top: 10px;
     }
 
     button {
-      padding: 14px 26px;
+      padding: 22px 40px; /* botones más grandes */
       border: none;
-      border-radius: 14px;
-      font-size: 18px;
+      border-radius: 18px;
+      font-size: 28px;    /* texto del botón al doble */
       cursor: pointer;
       transition: transform 0.25s ease, left 0.25s ease, top 0.25s ease;
       position: absolute;
@@ -70,8 +69,8 @@
     }
 
     #resultado p {
-      font-size: 18px;
-      margin: 10px 0;
+      font-size: 26px; /* texto final grande */
+      margin: 14px 0;
     }
   </style>
 </head>
@@ -80,8 +79,8 @@
     <h2 id="titulo">💌 Invitacion al 14F 💌</h2>
 
     <div id="buttons">
-      <button id="yesBtn" class="yes" onclick="aceptar()" style="left: 20%; top: 140px;">Sí</button>
-      <button id="noBtn" class="no" onclick="rechazar()" style="left: 55%; top: 140px;">No</button>
+      <button id="yesBtn" class="yes" onclick="aceptar()" style="left: 20%; top: 170px;">Sí</button>
+      <button id="noBtn" class="no" onclick="rechazar()" style="left: 55%; top: 170px;">No</button>
     </div>
 
     <div id="resultado" class="hidden"></div>
@@ -124,8 +123,8 @@
       titulo.textContent = frases[indiceTexto % frases.length];
       indiceTexto++;
 
-      const maxX = container.clientWidth - 160;
-      const maxY = container.clientHeight - 70;
+      const maxX = container.clientWidth - 220;
+      const maxY = container.clientHeight - 100;
 
       const baseX = Math.random() * maxX;
       const baseY = Math.random() * maxY;
@@ -133,8 +132,8 @@
       yesBtn.style.left = baseX + "px";
       yesBtn.style.top = baseY + "px";
 
-      noBtn.style.left = (baseX + 100) + "px";
-      noBtn.style.top = (baseY + 20) + "px";
+      noBtn.style.left = (baseX + 130) + "px";
+      noBtn.style.top = (baseY + 25) + "px";
     }
   </script>
 </body>
